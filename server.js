@@ -4,6 +4,7 @@ const connectDB = require("./config/db")
 const authRouter = require("./routes/authRoute")
 const usersRouter = require("./routes/usersRoute")
 const cors = require("cors")
+const cookieParser = require("cookie-parser")
 
 
 const PORT = 4002
@@ -21,6 +22,7 @@ app.use(cors({
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cookieParser())
 
 
 app.use("/auth", authRouter)
